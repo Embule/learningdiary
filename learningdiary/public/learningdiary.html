@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <head>
+        <title>Oppimispäiväkirja</title>
+        <!-- <script type="text/javascript" src="continuous.js"></script> -->
+        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="continuous\script.js"></script>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="stylesheets/style.css" >
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    </head>
+
+<body>
+
+    <h1>Blog</h1>
+    <h2>Learning Diary</h2>
+    <div class="container">
+        <form>
+            <div class="row">
+                <fieldset>
+                    <div id="row">
+                        <p>Id:
+                            <input type="text" name="idName" id="idName"><br /></p>
+                        <p>Title:
+                            <input type="text" name="title" id="title"><br /></p>
+                        <p>Description:
+                            <input type="text" name="description" id="description"><br /></p>
+                        <p>Time Spent on Subject:
+                            <input type="text" name="timespent" id="timespent"
+                                placeholder="Hours/Months/Years..."><br />
+                        </p>
+                        <p>Time Needed to Master:
+                            <input type="text" name="master" id="master"><br /></p>
+                        <p>Date started Learning:
+                            <input type="date" name="startingdate" id="startingdate"><br /></p>
+                        <p>Sources:
+                            <input type="text" name="source" id="source"><br /></p>
+                        <p>Progress:
+                            <input type="range" name="progress" id="progress" min="0" max="100" value="50"><br /></p>
+                        <p>Completion Date:
+                            <input type="date" name="completiondate" id="completiondate"></p>
+                </fieldset><br />
+                <input type="submit" value="Save" id="button1" onclick="saveData()">
+                <input type="submit" value="Show topics" id="button2" onclick="getTopic(event)">
+            </div>
+        </form>
+    </div>
+    <h3>Topics</h3>
+    <div id="topics">
+
+    </div>
+
+    <script>
+     
+$(document).ready(getTopics)
+function getTopics(){
+$.getJSON("/api/topics", function (data) {
+    console.dir(data);
+    $("#topics").empty();
+    for (let p of data) {
+        $("#topics").append( p.name ); // tähän lissää postattavaa?
+    }
+})
+}
+function luo() {
+    let name = $("#idName").val();
+    let title = $("#title").val();
+    let description = $("#description").val();
+    let timespent = $("#timespent").val();
+    let master = $("master").val();
+    let startingdate = $("startingdate").val();
+    let source = $("source").val();
+    let progress = $("progress").val();
+    let completiondate = $("completiondate").val();
+    console.log(name);
+    let topics = { name: idName, title: title, description: description, timespent: timespent, master: master, startingdate: startingdate, source: source, progress: progress, completiondate: completiondate};
+  var settings = {
+        //postmanista
+  //      "async": true,
+  //      "crossDomain": true,
+  //      "url": "http://localhost:3000/api/people",
+        // "method": "POST",
+        // "headers": {
+        //     "Content-Type": "application/json",
+        //     "Accept": "application/json",
+        // },
+        // "data": JSON.stringify(henkilo)
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        haekaikki();
+    });
+}
+
+    </script>
+
+</body>
+
+</html>
