@@ -20,4 +20,33 @@ router.post('api/topics', function (req, res) {
   });
 });
 
+// {
+//   "title": "CSS",
+//   "description": "frontend visuals",
+//   "timetomaster": 2,
+//   "timespent": 1,
+//   "source": "academy",
+//   "startdate": "2019-09-01",
+//   "progress": false
+// }
+
+router.get('/api/topics/:id', function (req, res) {
+  palvelu.getSingleTopic(req, function (data) {
+    res.json(data)
+  });
+});
+
+router.delete('/api/users/:id', function(req, res) {
+  palvelu.removeTopic(req, res, function() {
+    res.status(200)
+  });
+});
+
+router.put('/api/topics/:id', function(req, res) {
+  palvelu.updateTopic(req, function () {
+    res.status(200)
+    .end();
+  });
+});
+
 module.exports = router;
