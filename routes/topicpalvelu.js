@@ -25,4 +25,16 @@ function getAllTopics(callback) {
   });
 }
 
-module.exports = { getAllTopics}
+function addTopic(req, callback) {
+  pool.connect((err, client) => {
+    if (err) throw err;
+    client.query('insert into topic(title, description, timetomaster, timespent, source, startdate, progress) values($1, $2, $3, $4, $5, $6, $7',
+    [req.body.title, req.body.description, req.body.timetomaster, req.body.timespent, req.body.source, req.body.startdate, req.body.progress], (err, data) => {
+      if (err) throw err;
+      client.release();
+      callback();
+    });
+  });
+}
+
+module.exports = { getAllTopics, addTopic}

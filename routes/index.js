@@ -14,4 +14,10 @@ router.get('/api/topics', function (req, res) {
   });
 });
 
+router.post('api/topics', function (req, res) {
+  palvelu.addTopic(req, function () {
+    res.status(201).end();
+  });
+});
+
 module.exports = router;
