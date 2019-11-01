@@ -4,7 +4,7 @@
   "description": "learningdiary for own use",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon ./routes/index.js",
     "test": "jest"
   },
   "keywords": [],
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "node-modules": "^1.0.1",
+    "nodemon": "^1.19.4",
     "pg": "^7.12.1"
   },
   "devDependencies": {
