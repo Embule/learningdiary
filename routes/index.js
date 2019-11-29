@@ -36,7 +36,7 @@ router.get('/api/topics/:id', function (req, res) {
   });
 });
 
-router.delete('/api/users/:id', function(req, res) {
+router.delete('/api/topics/:id', function(req, res) {
   palvelu.removeTopic(req, res, function() {
     res.status(200)
   });
