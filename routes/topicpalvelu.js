@@ -82,6 +82,6 @@ function updateTopic(req, callback) {
   });
 }
 
-//vaihda topicsit topiceiksi jos ei toimi!!!!!!!!!
+//vaihda topicsit topiceiksi jos ei toimi!
 
 module.exports = { getAllTopics, addTopic, getSingleTopic, removeTopic, updateTopic}
