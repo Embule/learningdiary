@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var palvelu = require('./topicpalvelu');
+var palvelu = require('../palvelu/topicpalvelu');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

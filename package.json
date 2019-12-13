@@ -6,16 +6,17 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "ejs": "latest",
     "aws-sdk": "latest",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "ejs": "latest",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "redux": "^4.0.4"
   },
   "devDependencies": {
     "clean-css": "^4.2.1"
