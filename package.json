@@ -15,7 +15,7 @@
     "morgan": "~1.9.1",
     "nodemon": "^1.19.4",
     "pg": "^7.12.1",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "redux": "^4.0.4"
   },
   "devDependencies": {
